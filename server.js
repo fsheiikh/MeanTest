@@ -10,7 +10,7 @@ app.use(express.static(__dirname + "/client"));
 require('./server/config/mongoose');
 require('./server/config/routes')(app);
 
-app.listen(5000, function(){
-	console.log('listening on 5000...')
+app.listen(8000, function(){
+	console.log('listening on 8000...')
 })
 
