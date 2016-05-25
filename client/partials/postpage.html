@@ -1,0 +1,35 @@
+<div ng-controller="PostsController as PC">
+	
+	
+	<div class="well">
+		<h3>Question: {{PC.each.name}}</h3>
+		<table class="table">
+			<tr>
+				<th>Option</th>
+				<th>Votes</th>
+				<th>Vote</th>
+			</tr>
+			<tr>
+				<td>{{PC.each.option1}}</td>
+				<td>{{PC.each.option1_votes}}</td>
+				<td><button class="btn btn-success" ng-click="PC.vote(1)">Vote</button></td>
+			</tr>
+			<tr>
+				<td>{{PC.each.option2}}</td>
+				<td>{{PC.each.option2_votes}}</td>
+				<td><button class="btn btn-success" ng-click="PC.vote(2)">Vote</button></td>
+			</tr>
+			<tr>
+				<td>{{PC.each.option3}}</td>
+				<td>{{PC.each.option3_votes}}</td>
+				<td><button class="btn btn-success" ng-click="PC.vote(3)">Vote</button></td>
+			</tr>
+			<tr>
+				<td>{{PC.each.option4}}</td>
+				<td>{{PC.each.option4_votes}}</td>
+				<td><button class="btn btn-success" ng-click="PC.vote(4)">Vote</button></td>
+			</tr>
+		</table>
+		<a href="#/userpage"><button class="btn btn-info">Go To Polls</button></a>
+	</div>
+</div>

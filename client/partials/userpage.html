@@ -1,0 +1,35 @@
+<div class="well" ng-controller="UsersController as UC">
+	<div class="well" ng-controller="PostsController as PC">
+
+		<p ng-if="!UC.loggedin.name">Please Log in with your username to see content</p>
+
+
+		<div ng-if="UC.loggedin.name">
+			<h3 ng-if="UC.loggedin.name !== undefined">
+				Welcome, 
+				{{UC.loggedin.name}}
+			</h3>
+			
+	
+
+			<input class="form-control" type="text" ng-model="filter_name" placeholder="Search Polls">
+			<table class="table table-bordered table-striped">
+				<tr>
+					<th>Question</th>
+					<th>Creator</th>
+					<th>Date Posted</th>
+					<th>Action</th>
+				</tr>
+				<tr ng-repeat="p in PC.posts | filter:filter_name | orderBy:'moment'">
+					<td><a href="#/userpage/view/{{p._id}}" ng-click="PC.show(p._id)">{{p.name}}</a></td>
+					<td>{{p._user}}</td>
+					<td>{{p.moment}}</td>
+					<td ng-if="UC.loggedin.name == p._user"><button class="btn btn-default" ng-click="PC.remove(p._id)">Delete!</button></td>
+				</tr>	
+			</table>
+			<a href="#/login"><button class="btn btn-danger" ng-click="UC.logout()">Logout</button></a>
+			<a href="#/create">Create a New poll</a>
+		</div>
+
+	</div>	
+</div>

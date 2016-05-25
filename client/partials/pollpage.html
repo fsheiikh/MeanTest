@@ -1,0 +1,42 @@
+
+<div class="well" ng-controller="UsersController as UC">
+	<div class="well" ng-controller="PostsController as PC">
+
+		<p ng-if="!UC.loggedin.name">Please Log in with your username to see content</p>
+
+
+		<div ng-if="UC.loggedin.name">
+			<h3 ng-if="UC.loggedin.name !== undefined">
+				Welcome, 
+				{{UC.loggedin.name}}
+			</h3>
+			<a href="#/userpage">Cancel</a>
+			<form class="well">
+				Question: <input class="form-control" type="text" ng-model="PC.newPost.name">
+				<p class="error">{{ PC.validation.errors['name'].message}}</p><br>
+
+				Q1.<input class="form-control" type="text" ng-model="PC.newPost.option1">
+				<p class="error">{{ PC.validation.errors['option1'].message}}</p><br>
+			
+				Q2.<input class="form-control"type="text" ng-model="PC.newPost.option2">
+				<p class="error">{{ PC.validation.errors['option2'].message}}</p><br>
+
+				Q3.<input class="form-control" type="text" ng-model="PC.newPost.option3">
+				<p class="error">{{ PC.validation.errors['option3'].message}}</p><br>
+
+				Q4.<input class="form-control" type="text" ng-model="PC.newPost.option4">
+				<p class="error">{{ PC.validation.errors['option4'].message}}</p><br>
+				
+				<input type="hidden" value={{UC.loggedin._id}} ng-model="PC.newPost._userid" ><br>
+				
+				<input type="submit" ng-click="PC.create(PC.newPost)">
+				<a href="#/userpage">See Polls</a>
+			</form>
+			
+			
+			
+			
+			
+			
+	</div>	
+</div>
